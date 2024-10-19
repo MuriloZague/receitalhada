@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.receita {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+}
+
+.lineorange {
+    background-color: #E96B35;
+}
+
+.textorange {
+    color: #E96B35;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+}
+
+.inter {
+    font-family: "Inter", sans-serif;
+}
+
+.search {
+    background: #EAEBEA url('../src/assets/search-icon.png') no-repeat;
+    background-position: 1em;
+    background-size: 2rem;
+    padding-left: 3.8em;
+    padding-right: 1.2em;
+}
+
+.scroll-container {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #ffffff;
+}
+
+.searchbar {
+    display: flex;
+    justify-content: flex-end;
+}
