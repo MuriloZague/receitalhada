@@ -12,7 +12,7 @@
   <img src="https://skillicons.dev/icons?i=tailwind" height="40" alt="tailwind logo"  />
 </div>
 
-<br><br>
+<br>
 
 
 # React + TypeScript + Vite
