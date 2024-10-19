@@ -6,6 +6,7 @@
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     font-style: normal;
+    user-select: none;
 }
 
 .lineorange {
