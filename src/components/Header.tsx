@@ -5,7 +5,7 @@ export default function Header() {
     return(
         <div>
             <div className="pl-16 p-6">
-                <img src={LOGO} alt="" width={280} className='ml-8'/>
+                <img src={LOGO} alt="" width={280} className='ml-8 select-none'/>
             </div>
             <div className="lineorange h-5">
 
