@@ -40,3 +40,8 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.bg-grow:hover {
+    background-size: 120%; /* Aumenta a imagem no hover */
+  }
+  

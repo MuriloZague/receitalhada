@@ -9,6 +9,13 @@ import VEGAN from './assets/vegetais.jpg'
 import CAKES from './assets/doces.jpg'
 import Revenues from "./components/ListRevenues"
 
+import CAKE from './assets/revenues/bolo.jpg'
+import CONDENSADO from './assets/revenues/condensado.jpg'
+import CHURRASCO from './assets/revenues/churrasco.png'
+
+import F from './assets/revenues/F.png'
+import M from './assets/revenues/m.png'
+
 const listCard = [
   {title: 'Receitas Brasileiras', src: REVENUES},
   {title: 'Massas', src: PASTA},
@@ -17,6 +24,11 @@ const listCard = [
   {title: 'Doces', src: CAKES},
 ]
 
+const listRevenues = [
+  {title: 'Bolos Famosos da Tia Flávia', src: CAKE, perfil: F, name: 'Tia Flávia', date: '18/10/2024 às 15:35', likes: '25'},
+  {title: 'Melhores Churrascos na opinião do tio Márcio', src: CHURRASCO, perfil: M, name: 'Tio Marcio', date: '13/08/2024 às 12:16', likes: '16'},
+  {title: 'Doce de Leite Condensado', src: CONDENSADO, perfil: F, name: 'Tia Flávia', date: '15/08/2024 às 19:25', likes: '39'},
+]
 
 function App() {
 
@@ -26,7 +38,7 @@ function App() {
       <div className="mt-10 px-20 pl-24">
       <Search />
       <Cards sources={listCard}/>
-      <Revenues />
+      <Revenues revenues={listRevenues} />
       </div>
     </div>
   )
