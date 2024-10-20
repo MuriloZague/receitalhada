@@ -7,6 +7,7 @@ import PASTA from './assets/massas.jpg'
 import JUICE from './assets/sucos.jpg'
 import VEGAN from './assets/vegetais.jpg'
 import CAKES from './assets/doces.jpg'
+import Revenues from "./components/ListRevenues"
 
 const listCard = [
   {title: 'Receitas Brasileiras', src: REVENUES},
@@ -25,6 +26,7 @@ function App() {
       <div className="mt-10 px-20 pl-24">
       <Search />
       <Cards sources={listCard}/>
+      <Revenues />
       </div>
     </div>
   )

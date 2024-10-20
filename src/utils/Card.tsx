@@ -5,7 +5,7 @@ type CardProps = {
   export default function Card({ sources }: CardProps) {
 
     return (
-      
+
       <section className="scroll-container scrollbar scrollbar-thumb-blue-500 flex gap-10 overflow-x-auto py-6 ease-out px-2">
         {sources.map((source, index) => (
           <div
