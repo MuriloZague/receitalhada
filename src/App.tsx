@@ -15,6 +15,7 @@ import CHURRASCO from './assets/revenues/churrasco.png'
 
 import F from './assets/revenues/F.png'
 import M from './assets/revenues/m.png'
+import Publicity from "./components/Ads"
 
 const listCard = [
   {title: 'Receitas Brasileiras', src: REVENUES},
@@ -39,6 +40,7 @@ function App() {
       <Search />
       <Cards sources={listCard}/>
       <Revenues revenues={listRevenues} />
+      
       </div>
     </div>
   )

@@ -44,4 +44,8 @@
 .bg-grow:hover {
     background-size: 120%; /* Aumenta a imagem no hover */
   }
-  
+
+.ads {
+    width: 250px;
+    height: 550px;
+}
