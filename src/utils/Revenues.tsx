@@ -7,9 +7,9 @@ type RevenuesProps = {
 export default function Revenues({ revenues }: RevenuesProps) {
     return (
         <section className="mb-32">
-            <div className="revenues-container flex flex-wrap gap-10 mt-5">
+            <div className="flex flex-wrap gap-12 mt-5">
                 {revenues.map((revenue, index) => (
-                    <div key={index} className="revenue-item">
+                    <div className='w-2/5' key={index}>
                         <div className='flex justify-center'>
                             <div className='flex max-w-80 h-11 items-center'>
                                 <p className='text-xl receita text-center cursor-pointer'>{revenue.title}</p>
@@ -17,7 +17,7 @@ export default function Revenues({ revenues }: RevenuesProps) {
                         </div>
 
                         {/* Imagem da receita */}
-                        <div className="relative bg-gray-300 w-96 h-80 mt-4 rounded-sm overflow-hidden cursor-pointer"
+                        <div className="relative bg-gray-300 w-full h-80 mt-4 rounded-sm overflow-hidden cursor-pointer"
                             style={{ boxShadow: '0 5px 5px 0 rgba(0,0,0,.15)' }}>
                             <div
                                 className="absolute inset-0 transition-transform duration-500 ease-out hover:scale-110"

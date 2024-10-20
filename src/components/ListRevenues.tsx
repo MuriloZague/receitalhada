@@ -8,8 +8,8 @@ type RevenuesList = {
 export default function ListRevenues({ revenues }: RevenuesList){
 
     return(
-        <section className="mt-10 w-full flex ml-5">
-            <div className="w-3/4">
+        <section className="mt-10 w-full flex">
+            <div className="w-11/12">
                 <div className="mb-8">
                     <p className="inter text-3xl font-bold">Principais <span className="textorange">Receitas</span></p>
                 </div>

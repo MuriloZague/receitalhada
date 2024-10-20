@@ -28,7 +28,9 @@ const listCard = [
 const listRevenues = [
   {title: 'Bolos Famosos da Tia Flávia', src: CAKE, perfil: F, name: 'Tia Flávia', date: '18/10/2024 às 15:35', likes: '25'},
   {title: 'Melhores Churrascos na opinião do tio Márcio', src: CHURRASCO, perfil: M, name: 'Tio Marcio', date: '13/08/2024 às 12:16', likes: '16'},
-  {title: 'Doce de Leite Condensado', src: CONDENSADO, perfil: F, name: 'Tia Flávia', date: '15/08/2024 às 19:25', likes: '39'},
+  {title: 'Doce de Leite Condensado', src: CONDENSADO, perfil: F, name: 'Tia Flávia', date: '15/08/2024 às 19:25', likes: '12'},
+  {title: 'Melhores Churrascos na opinião do tio Márcio', src: CHURRASCO, perfil: M, name: 'Tio Marcio', date: '13/08/2024 às 12:16', likes: '16'},
+
 ]
 
 function App() {
