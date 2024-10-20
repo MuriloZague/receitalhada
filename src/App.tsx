@@ -22,6 +22,7 @@ const listCard = [
   {title: 'Sucos Naturais', src: JUICE},
   {title: 'Vegano', src: VEGAN},
   {title: 'Doces', src: CAKES},
+  {title: 'Bolos', src: CAKE}
 ]
 
 const listRevenues = [
@@ -33,7 +34,6 @@ const listRevenues = [
 ]
 
 function App() {
-
   return (
     <div>
       <Header />
@@ -41,7 +41,6 @@ function App() {
       <Search />
       <Cards sources={listCard}/>
       <Revenues revenues={listRevenues} />
-      
       </div>
     </div>
   )
