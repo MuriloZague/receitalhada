@@ -9,9 +9,9 @@ import VEGAN from './assets/vegetais.jpg'
 import CAKES from './assets/doces.jpg'
 
 const listCard = [
-  {title: 'ReceitasBrasileiras', src: REVENUES},
+  {title: 'Receitas Brasileiras', src: REVENUES},
   {title: 'Massas', src: PASTA},
-  {title: 'SucosNaturais', src: JUICE},
+  {title: 'Sucos Naturais', src: JUICE},
   {title: 'Vegano', src: VEGAN},
   {title: 'Doces', src: CAKES},
 ]
