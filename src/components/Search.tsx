@@ -11,7 +11,7 @@ export default function Search() {
                     </p>
                 </div>
                 <div className="flex w-2/3 searchbar">
-                    <input type="text" placeholder="Procure por uma receita" className="bg-red-500 w-3/4 rounded-full text-xl search mt-4"/>
+                    <input type="text" placeholder="Procure por uma receita" className="bg-red-500 w-3/4 rounded-full text-xl search mt-4 outline-none"/>
                     <img src={FILTER} className='w-9 h-9 mt-8 ml-6' alt="" />
                 </div>
             </div>

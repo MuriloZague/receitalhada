@@ -6,15 +6,14 @@ import REVENUES from './assets/brazilianreceitas.jpg'
 import PASTA from './assets/massas.jpg'
 import JUICE from './assets/sucos.jpg'
 import VEGAN from './assets/vegetais.jpg'
+import CAKES from './assets/doces.jpg'
 
 const listCard = [
-  {title: 'Receitas\nBrasileiras', src: REVENUES},
+  {title: 'ReceitasBrasileiras', src: REVENUES},
   {title: 'Massas', src: PASTA},
-  {title: 'Sucos\nNaturais', src: JUICE},
+  {title: 'SucosNaturais', src: JUICE},
   {title: 'Vegano', src: VEGAN},
-  {title: 'Receitas\nBrasileiras', src: REVENUES},
-  {title: 'Massas', src: PASTA},
-  {title: 'Sucos\nNaturais', src: JUICE},
+  {title: 'Doces', src: CAKES},
 ]
 
 
