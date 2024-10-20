@@ -41,7 +41,6 @@ function App() {
       <Search />
       <Cards sources={listCard}/>
       <Revenues revenues={listRevenues} />
-      
       </div>
     </div>
   )
