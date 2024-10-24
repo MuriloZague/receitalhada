@@ -23,7 +23,7 @@ export default function SignIn() {
  })
 
  const handleSignIn = (data: SignInSchema) => {
-   // console.log(data)
+    console.log(data)
  }
 
  const goToSignUp = () => {
