@@ -1,7 +1,9 @@
+//components
 import Header from "./components/Header"
 import Search from "./components/Search"
 import Cards from "./components/ListCard"
 
+//assets cards
 import REVENUES from './assets/brazilianreceitas.jpg'
 import PASTA from './assets/massas.jpg'
 import JUICE from './assets/sucos.jpg'
@@ -9,10 +11,12 @@ import VEGAN from './assets/vegetais.jpg'
 import CAKES from './assets/doces.jpg'
 import Revenues from "./components/ListRevenues"
 
+//assets revenues
 import CAKE from './assets/revenues/bolo.jpg'
 import CONDENSADO from './assets/revenues/condensado.jpg'
 import CHURRASCO from './assets/revenues/churrasco.png'
 
+//assets icons
 import F from './assets/revenues/F.png'
 import M from './assets/revenues/m.png'
 
@@ -30,20 +34,19 @@ const listRevenues = [
   {title: 'Melhores Churrascos na opinião do tio Márcio', src: CHURRASCO, perfil: M, name: 'Tio Marcio', date: '13/08/2024 às 12:16', likes: '16'},
   {title: 'Doce de Leite Condensado', src: CONDENSADO, perfil: F, name: 'Tia Flávia', date: '15/08/2024 às 19:25', likes: '12'},
   {title: 'Melhores Churrascos na opinião do tio Márcio', src: CHURRASCO, perfil: M, name: 'Tio Marcio', date: '13/08/2024 às 12:16', likes: '18'},
-
 ]
 
 function App() {
   return (
     <div>
-      <Header />
+        <Header title={false} account={true}/>
       <div className="mt-10 px-20 pl-24">
-      <Search />
-      <Cards sources={listCard}/>
-      <Revenues revenues={listRevenues} />
+        <Search />
+        <Cards sources={listCard}/>
+        <Revenues revenues={listRevenues} />
       </div>
     </div>
   )
 }
 
-export default App
+export default App;
