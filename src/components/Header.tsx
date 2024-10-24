@@ -23,14 +23,15 @@ export default function Header({account, title}: HeaderProps) {
         navigate('/login');
     };
 
+    const goToHome = () => {
+        navigate('/')
+    }
+
     return(
         <div>
+            {title === false ? 
             <div className="px-16 p-4 flex justify-between">
-                {title === true ? 
-                    <img src={LOGO} width={280} className='ml-8'/> 
-                    : <img src={LOGO} width={280} className='ml-8'/>
-                }
-                
+                <img src={LOGO} width={280} className='ml-8 cursor-pointer'/> 
                 {account && (
                     <img className='mt-1 cursor-pointer' src={ACCOUNT} width={45} onClick={toggleMenu} />
                 )}
@@ -43,6 +44,22 @@ export default function Header({account, title}: HeaderProps) {
                 </div>
                 )}
             </div>
+            :
+            <div className="px-16 p-4 flex justify-center">
+            <img src={LOGO} width={280} onClick={goToHome} className='cursor-pointer'/> 
+            {account && (
+                <img className='mt-1 cursor-pointer' src={ACCOUNT} width={45} onClick={toggleMenu} />
+            )}
+            
+            {isMenuOpen && (
+                <div className="absolute right-5 top-20 bg-white border border-gray-300 shadow-md p-2 px-8 rounded">
+                <p className="cursor-pointer hover:text-gray-700 mb-1 text-center" onClick={goToLogin}>Entrar</p>
+                <hr />
+                <p className="cursor-pointer hover:text-gray-700 text-center">Cadastrar</p>
+            </div>
+            )}
+        </div>
+        }
             <div className="lineorange h-5">
             </div>
             
