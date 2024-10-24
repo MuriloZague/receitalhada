@@ -38,7 +38,8 @@ export default function SignUp() {
             <div className="h-0.5 line"></div>
 
             <form onSubmit={handleSubmit(handleSignIn)} className="flex flex-col">
-                <label htmlFor="nome" className="text-2xl inter font-bold mt-7 ml-1">Nome</label>
+
+                <label htmlFor="nome" className="text-2xl inter font-bold mt-5 ml-1">Nome</label>
                 <input className="border border-customStoke mt-2 p-2 rounded-md inter text-lg" type="text" placeholder="Seu Nome" {...register('nome', { required: true })}/>
                 {errors.nome && <p className="text-red-500">{errors.nome.message}</p>}
 
