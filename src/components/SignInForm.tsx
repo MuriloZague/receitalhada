@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { z } from 'zod'
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from 'react-router-dom'
 
 
 const signInSchema = z.object({
@@ -13,13 +14,23 @@ type SignInSchema = z.infer<typeof signInSchema>
 
 
 export default function SignIn() {
-    
+
+ const navigate = useNavigate()
+
+   
  const { register, handleSubmit, formState: {errors} } = useForm<SignInSchema>({
     resolver: zodResolver(signInSchema)
  })
 
  const handleSignIn = (data: SignInSchema) => {
-    console.log(data)
+   // console.log(data)
+ }
+
+ const goToSignUp = () => {
+    navigate('/cadastro')
+ }
+ const goToForgetPass = () => {
+    navigate('/esqueciasenha')
  }
 
  return (
@@ -49,12 +60,12 @@ export default function SignIn() {
         <input id="remember" className="w-5 h-5 border-customStoke borde" type="checkbox" {...register('remember', {required: true})}/>
         <label htmlFor="remember" className="inter ml-2 text-customGray">Lembrar Senha</label>
         </div>
-        <label className="inter font-bold text-customGray underline"><a href="">Esqueceu sua senha?</a></label>
+        <label className="inter font-bold text-customGray underline"><a className="cursor-pointer" onClick={goToForgetPass}>Esqueceu sua senha?</a></label>
     </div>
 
-    <button type="submit" className="bg-orange-500 text-white inter text-2xl font-bold p-2 mb-5">Login</button>
+    <button type="submit" className="bg-orange-500 text-white inter text-2xl font-bold p-2 mb-5 rounded-md">Login</button>
 
-    <p className="text-center text-customGray font-bold inter mb-1">Não possui uma conta? <a href="" className="textorange underline">Crie uma!</a></p>
+    <p className="text-center text-customGray font-bold inter mb-1">Não possui uma conta? <a onClick={goToSignUp} className="textorange underline cursor-pointer">Crie uma!</a></p>
     </form>
 
     </section>

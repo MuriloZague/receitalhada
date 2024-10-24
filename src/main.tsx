@@ -6,7 +6,9 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import LoginPage from './routes/LoginPage.tsx'
+import Cadastro from './routes/SignUp.tsx'
 import Erro from './routes/Error.tsx'
+import ForgotPass from './routes/ForgotPass.tsx'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,12 @@ const router = createBrowserRouter([
   },
   {
     path: '/login', element: <LoginPage />
+  },
+  {
+    path: '/cadastro', element: <Cadastro />
+  },
+  {
+    path: '/esqueciasenha', element: <ForgotPass />
   }
 ])
 

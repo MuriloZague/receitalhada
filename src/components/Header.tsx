@@ -9,7 +9,6 @@ type HeaderProps = {
     title: Boolean;
 }
 
-
 export default function Header({account, title}: HeaderProps) {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -22,6 +21,10 @@ export default function Header({account, title}: HeaderProps) {
     const goToLogin = () => {
         navigate('/login');
     };
+
+    const goToSignUp = () => {
+        navigate('/cadastro')
+    }
 
     const goToHome = () => {
         navigate('/')
@@ -40,7 +43,7 @@ export default function Header({account, title}: HeaderProps) {
                     <div className="absolute right-5 top-20 bg-white border border-gray-300 shadow-md p-2 px-8 rounded">
                     <p className="cursor-pointer hover:text-gray-700 mb-1 text-center" onClick={goToLogin}>Entrar</p>
                     <hr />
-                    <p className="cursor-pointer hover:text-gray-700 text-center">Cadastrar</p>
+                    <p className="cursor-pointer hover:text-gray-700 text-center" onClick={goToSignUp}>Cadastrar</p>
                 </div>
                 )}
             </div>
@@ -51,13 +54,6 @@ export default function Header({account, title}: HeaderProps) {
                 <img className='mt-1 cursor-pointer' src={ACCOUNT} width={45} onClick={toggleMenu} />
             )}
             
-            {isMenuOpen && (
-                <div className="absolute right-5 top-20 bg-white border border-gray-300 shadow-md p-2 px-8 rounded">
-                <p className="cursor-pointer hover:text-gray-700 mb-1 text-center" onClick={goToLogin}>Entrar</p>
-                <hr />
-                <p className="cursor-pointer hover:text-gray-700 text-center">Cadastrar</p>
-            </div>
-            )}
         </div>
         }
             <div className="lineorange h-5">
