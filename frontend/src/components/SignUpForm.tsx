@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from 'react-router-dom';
 
-const signInSchema = z.object({
+const signUpSchema = z.object({
     nome: z.string().min(1, { message: 'Este campo é obrigatório' }),
     email: z.string().min(1, { message: 'O e-mail é obrigatório' }).email({ message: 'Formato de e-mail inválido' }),
     senha: z.string().min(6, { message: 'A senha deve ter no mínimo 6 caracteres' }),
@@ -13,16 +13,16 @@ const signInSchema = z.object({
     path: ['csenha'],
 });
 
-type SignInSchema = z.infer<typeof signInSchema>;
+type SignUpSchema = z.infer<typeof signUpSchema>;
 
 export default function SignUp() {
     const navigate = useNavigate();
     
-    const { register, handleSubmit, formState: { errors } } = useForm<SignInSchema>({
-        resolver: zodResolver(signInSchema)
+    const { register, handleSubmit, formState: { errors } } = useForm<SignUpSchema>({
+        resolver: zodResolver(signUpSchema)
     });
 
-    const handleSignIn = (data: SignInSchema) => {
+    const handleSignIn = (data: SignUpSchema) => {
         console.log(data);
     };
 
