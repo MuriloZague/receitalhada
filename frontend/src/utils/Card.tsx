@@ -12,6 +12,7 @@ type CardProps = {
             className="flex-shrink-0 w-64 h-32 rounded-2xl inline-block hover:scale-105"
             key={index}
             style={{
+              boxShadow: '0 5px 5px 0 rgba(0,0,0,.14)',
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${source.src})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
