@@ -6,3 +6,74 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Users {
+  id_user     Int           @id @default(autoincrement())
+  email       String        @unique
+  name        String
+  username    String        @unique
+  img_url     String?
+  phone       String
+  Receitas    Receitas[]
+  Admins      Admins[]
+  Favoritos   Favoritos[]
+  Comentarios Comentarios[]
+  Avaliacoes  Avaliacoes[]
+}
+
+model Admins {
+  id_admin Int   @id @default(autoincrement())
+  user_id  Int
+  user     Users @relation(fields: [user_id], references: [id_user])
+}
+
+model Receitas {
+  id_receitas            Int           @id @default(autoincrement())
+  title                  String        @db.VarChar(255)
+  ingredients            String?
+  preparationMethod      String?
+  observation            String?
+  author_id              Int
+  author                 Users         @relation(fields: [author_id], references: [id_user])
+  Favoritos              Favoritos[]
+  Comentarios            Comentarios[]
+  Avaliacoes             Avaliacoes[]
+  createdAt              DateTime      @default(now())
+  updatedAt              DateTime      @updatedAt
+  Categorias             Categorias?   @relation(fields: [categoriasId_categoria], references: [id_categoria])
+  categoriasId_categoria Int?
+}
+
+model Favoritos {
+  id_favoritos Int      @id @default(autoincrement())
+  user_id      Int
+  receita_id   Int
+  user         Users    @relation(fields: [user_id], references: [id_user])
+  receita      Receitas @relation(fields: [receita_id], references: [id_receitas])
+}
+
+model Comentarios {
+  id_comentario Int      @id @default(autoincrement())
+  content       String
+  user_id       Int
+  receita_id    Int
+  user          Users    @relation(fields: [user_id], references: [id_user])
+  receita       Receitas @relation(fields: [receita_id], references: [id_receitas])
+  createdAt     DateTime @default(now())
+}
+
+model Avaliacoes {
+  id_avaliacao Int      @id @default(autoincrement())
+  rating       Float
+  user_id      Int
+  receita_id   Int
+  user         Users    @relation(fields: [user_id], references: [id_user])
+  receita      Receitas @relation(fields: [receita_id], references: [id_receitas])
+  createdAt    DateTime @default(now())
+}
+
+model Categorias {
+  id_categoria Int        @id @default(autoincrement())
+  name         String     @db.VarChar(255)
+  Receitas     Receitas[]
+}
