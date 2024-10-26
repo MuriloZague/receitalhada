@@ -6,7 +6,7 @@ type CardsInfo = {
 
 export default function ListCard({sources}: CardsInfo) {
     return (
-        <section className="mt-10">
+        <section className="mt-10 tsm:mt-2">
             <Card sources={sources} />
         </section>
     )

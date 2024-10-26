@@ -11,6 +11,9 @@ export default {
         customStoke: '#444444'
       },
     },
+    screens: {
+      'tsm': { 'max': '450px' },
+    }
   },
   plugins: [require("tailwind-scrollbar")],
 }

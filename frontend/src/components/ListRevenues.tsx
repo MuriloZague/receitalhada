@@ -9,13 +9,13 @@ export default function ListRevenues({ revenues }: RevenuesList){
 
     return(
         <section className="mt-10 w-full flex">
-            <div className="w-11/12">
-                <div className="mb-8">
-                    <p className="inter text-3xl font-bold">Principais <span className="textorange">Receitas</span></p>
+            <div className="w-11/12 tsm:w-full">
+                <div className="mb-8 tsm:mb-5">
+                    <p className="inter text-3xl font-bold tsm:text-2xl tsm:text-center">Principais <span className="textorange">Receitas</span></p>
                 </div>
                 <Revenues revenues={revenues} />
             </div>
-            <div className="">
+            <div className="tsm:hidden">
                 <Ads />
             </div>
         </section>
