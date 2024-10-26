@@ -34,7 +34,7 @@ export default function Header({account, title}: HeaderProps) {
         <div>
             {title === false ? 
             <div className="px-16 tsm:px-7 tsm:mt-4 p-4 flex justify-between">
-                <img src={LOGO} className='w-[280px] tsm:w-[180px] tsm:h-[35px] ml-8 tsm:ml-0 cursor-pointer'/> 
+                <img src={LOGO} className='w-[280px] tsm:w-[190px] tsm:h-[35px] ml-8 tsm:ml-0 cursor-pointer'/> 
                 {account && (
                     <img className='mt-1 cursor-pointer w-[45px] tsm:w-[35px]' src={ACCOUNT} onClick={toggleMenu} />
                 )}
@@ -49,7 +49,7 @@ export default function Header({account, title}: HeaderProps) {
             </div>
             :
             <div className="px-16 p-4 flex justify-center">
-            <img src={LOGO} width={280} onClick={goToHome} className='cursor-pointer'/> 
+            <img src={LOGO} onClick={goToHome} className='w-[280px] tsm:w-[190px] tsm:mt-4 cursor-pointer'/> 
             {account && (
                 <img className='mt-1 cursor-pointer' src={ACCOUNT} width={45} onClick={toggleMenu} />
             )}
