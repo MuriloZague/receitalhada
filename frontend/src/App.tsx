@@ -39,7 +39,7 @@ function App() {
   return (
     <div>
         <Header title={false} account={true}/>
-      <div className="mt-10 px-20 tsm:px-4 pl-24">
+      <div className="mt-10 px-20 tsm:px-4 pl-24 lg:px-10 tlg:px-12">
         <Search />
         <Cards sources={listCard}/>
         <Revenues revenues={listRevenues} />

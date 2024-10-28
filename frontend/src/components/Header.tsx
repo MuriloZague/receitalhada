@@ -33,8 +33,8 @@ export default function Header({account, title}: HeaderProps) {
     return(
         <div>
             {title === false ? 
-            <div className="px-16 tsm:px-7 tsm:mt-4 p-4 flex justify-between">
-                <img src={LOGO} className='w-[280px] tsm:w-[190px] tsm:h-[35px] ml-8 tsm:ml-0 cursor-pointer'/> 
+            <div className="px-16 tsm:px-7 lg:px-2 lg:pr-8 tsm:mt-4 p-4 flex justify-between">
+                <img src={LOGO} className='w-[280px] tsm:w-[190px] tsm:h-[35px] ml-8 tlg:ml-0 tsm:ml-0 cursor-pointer'/> 
                 {account && (
                     <img className='mt-1 cursor-pointer w-[45px] tsm:w-[35px]' src={ACCOUNT} onClick={toggleMenu} />
                 )}
