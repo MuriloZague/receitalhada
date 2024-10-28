@@ -1,8 +1,24 @@
 import { FaStar } from 'react-icons/fa';
 
 type RevenuesProps = {
-    revenues: Array<{ title: string; src: string; perfil: string; name: string; date: string; likes: string }>
+    revenues: Array<{ title: string; src: string; perfil: string; name: string; date: string; likes: string; rating: string }>
 };
+
+
+const StarRating = ({ rating }: { rating: number }) => {
+    // Calcula a porcentagem de preenchimento da estrela com base no rating (0 a 100%)
+    const fillPercentage = (rating / 5) * 100;
+  
+    return (
+      <div className="relative">
+        <FaStar className="text-xl text-gray-300" />
+        <FaStar
+          className="absolute top-0 left-0 text-xl text-yellow-500"
+          style={{ clipPath: `inset(0 ${100 - fillPercentage}% 0 0)` }}
+        />
+      </div>
+    );
+  };
 
 export default function Revenues({ revenues }: RevenuesProps) {
     return (
@@ -36,8 +52,8 @@ export default function Revenues({ revenues }: RevenuesProps) {
                                 <p className='text-lg inter font-bold leading-tight tsm:text-base'>{revenue.name}</p>
                                 <p className='text-sm leading-tight tsm:text-xs'>{revenue.date}</p>
                                 <div className='flex items-center space-x-1 flex-row'>
-                                    <FaStar className='w-[20px] tsm:w-[12px]' color='#FFB100' />
-                                    <p className='text-sm tsm:text-xs'>{revenue.likes} favoritos</p>
+                                    <StarRating rating={parseFloat(revenue.rating)}  />
+                                    <p className='text-sm tsm:text-xs'>{revenue.rating} • {revenue.likes} favoritos</p>
                                 </div>
                             </div>
                         </div>
