@@ -26,7 +26,7 @@
 .search {
     background: #EAEBEA url('../src/assets/search-icon.png') no-repeat;
     background-position: 1em;
-    background-size: 2rem;
+    background-size: 1.8rem;
     padding-left: 3.8em;
     padding-right: 1.2em;
 }
@@ -43,16 +43,6 @@
 
 .bg-grow:hover {
     background-size: 120%; /* Aumenta a imagem no hover */
-  }
-
-.ads {
-    width: 250px;
-    height: 550px;
-}
-
-.loginpg {
-    background-color: #d9d9d9;
-    width: 43%;
 }
 
 .line {
