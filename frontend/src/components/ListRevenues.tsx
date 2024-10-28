@@ -2,7 +2,7 @@ import Revenues from "../utils/Revenues";
 import Ads from "./Ads";
 
 type RevenuesList = {
-    revenues: Array<{ title: string; src: string; perfil: string; name: string; date: string; likes: string }>
+    revenues: Array<{ title: string; src: string; perfil: string; name: string; date: string; likes: string; rating: string }>
   };
 
 export default function ListRevenues({ revenues }: RevenuesList){
