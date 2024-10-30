@@ -1,17 +1,22 @@
 {
   "compilerOptions": {
     "target": "ES2016",
-    "module": "ES6",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "outDir": "dist",
+    "rootDir": "src",
     "types": [
-      "node"
-    ]
+      "node",
+      "jest"
+    ],
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "include": [
-    "src/**/*.ts"
+    "./src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "src/**/*.spec.ts"
+    "./src/**/*.spec.ts"
   ]
 }
