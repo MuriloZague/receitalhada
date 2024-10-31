@@ -2,10 +2,10 @@
     "watch": [
         "src/**/*.ts"
     ],
-    "exec": "npx ts-node src/index.ts",
     "ext": "ts",
     "ignore": [
         "dist/*",
         "node_modules"
-    ]
+    ],
+    "exec": "node --loader ts-node/esm src/index.ts"
 }
