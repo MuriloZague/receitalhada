@@ -26,7 +26,14 @@ Para iniciar, siga os passos:
     npm run ps     # Rodar o Prisma Studio (CLI do Prisma)
     npm run dev:ps # Rodar o ambiente de dev + Prisma Studio (CLI do Prisma)
 ```
-1. Inicie a API
+5. Inicie o banco
+```
+    # Para programar
+    npx prisma generate && npx prisma migrate dev
+    # Para produção
+    npx prisma generate && npx prisma migrate deploy
+```
+6. Inicie a API
 ```
     # Inicia a API (padrão: localhost:3000)
     npm run start
