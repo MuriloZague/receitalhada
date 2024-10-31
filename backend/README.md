@@ -21,15 +21,17 @@ Para iniciar, siga os passos:
     # Transpila código para distruibição
     npm run build
     # ===Outros comandos===
-    npm run dev  # Ambiente hot reload para desenvolver
-    npm run test # Rodar os testes
+    npm run dev    # Ambiente hot reload para desenvolver
+    npm run test   # Rodar os testes
+    npm run ps     # Rodar o Prisma Studio (CLI do Prisma)
+    npm run dev:ps # Rodar o ambiente de dev + Prisma Studio (CLI do Prisma)
 ```
-5. Inicie a API
+1. Inicie a API
 ```
     # Inicia a API (padrão: localhost:3000)
     npm run start
 ```
-6. Testando a conectividade da api
+1. Testando a conectividade da api
 ```
     GET http://localhost:3000/up
     -> { "message": "Server is up!" }
