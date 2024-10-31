@@ -14,7 +14,9 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true
   },
   "include": [
     "src/**/*.ts"
