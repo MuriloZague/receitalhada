@@ -1,26 +1,28 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
     "target": "ES6",
-    "outDir": "dist",
-    "rootDir": "src",
-    "types": [
-      "node",
-      "jest"
+    "module": "NodeNext",
+    "lib": [
+      "es6",
+      "dom"
     ],
+    "declaration": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "declarationDir": "./dist/@types",
+    "removeComments": true,
     "esModuleInterop": true,
-    "strict": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
-    "removeComments": true
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
-    "./src/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "./src/**/*.spec.ts",
-    "./src/**/*.test.ts",
-    "./__tests__/**/*"
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "__tests__"
   ]
 }

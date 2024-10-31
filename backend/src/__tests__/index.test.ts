@@ -1,5 +1,5 @@
 import request from 'supertest';
-import { app, server } from './index';
+import { app, server } from '../index';
 
 // Define a descrição da sessão
 describe('GET /', () => {
