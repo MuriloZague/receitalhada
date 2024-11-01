@@ -9,5 +9,10 @@ export default {
         useESM: true,
       },
     ],
-  }
+  },
+  globals: {
+    'ts-jest': {
+      useESM: true,
+    },
+  },
 };
