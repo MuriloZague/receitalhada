@@ -1,9 +1,9 @@
 import request from 'supertest';
-import { app, server } from '../index';
+import { describe, it, afterAll, expect } from 'vitest';
+import { app, server } from '../../src/index.js';
 
 // Define a descrição da sessão
 describe('GET /', () => {
-    // Deve retornar código 202 e que o servidor mostre a mensagem de "up"
     it('should return status 202 and a server is up message', async () => {
         // Aguarda a resposta da rota "/up"
         const response = await request(app).get('/up');
@@ -14,7 +14,7 @@ describe('GET /', () => {
     });
 });
 
-afterAll((done) => {
+afterAll(() => {
     // Depois de todos testes, fecha o servidor
-    server.close(done);
+    server.close();
 });
