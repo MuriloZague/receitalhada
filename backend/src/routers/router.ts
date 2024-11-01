@@ -1,6 +1,6 @@
 import { Router as RouterExpress } from "express";
 
-class Router {
+abstract class Router {
     public router: RouterExpress;
 
     constructor() {
@@ -8,9 +8,15 @@ class Router {
         this.setRoutes();
     }
 
-    protected setRoutes(): void {
-    }
+    /**
+     * Método abstrato para definir as rotas, que será implementado nas classes filhas
+     */
+    protected abstract setRoutes(): void;
 
+    /**
+     * Getter do router com as rotas definidas
+     * @returns Retorna o router criado internamente
+     */
     public getRoutes(): RouterExpress {
         return this.router;
     }
