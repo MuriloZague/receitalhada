@@ -20,6 +20,8 @@
   <img width="12" />
   <img src="https://skillicons.dev/icons?i=jest" height="40" alt="jest logo"  />
   <img width="12" />
+  <img src="https://skillicons.dev/icons?i=vitest" height="40" alt="vitest logo"  />
+  <img width="12" />
   <img src="https://skillicons.dev/icons?i=mysql" height="40" alt="mysql logo"  />
 
 </div>
