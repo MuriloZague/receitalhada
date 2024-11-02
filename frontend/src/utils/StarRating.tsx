@@ -1,4 +1,3 @@
-import { FaStar } from 'react-icons/fa';
 import { IoIosStar } from "react-icons/io";
 
 type StarRatingProps = {
