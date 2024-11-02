@@ -1,10 +1,10 @@
 import { IoIosStar } from "react-icons/io";
 
 type StarRatingProps = {
-    rating: number; // Defina rating como number aqui
+    rating: number;
 }
 
-const StarRating = ({ rating }: StarRatingProps) => { // Apenas use StarRatingProps
+const StarRating = ({ rating }: StarRatingProps) => {
     const fillPercentage = (rating / 5) * 100;
     return (
       <div className="relative">
