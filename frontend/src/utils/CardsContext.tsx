@@ -22,7 +22,7 @@ const CardsContext = createContext<CardsContextType | undefined>(undefined);
 export const CardsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
 
-  const initialCards: Card[] = [
+  const listCards: Card[] = [
     { title: 'Receitas Brasileiras', src: REVENUES },
     { title: 'Massas', src: PASTA },
     { title: 'Sucos Naturais', src: JUICE },
@@ -31,7 +31,7 @@ export const CardsProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     { title: 'Bolos', src: CAKE },
   ];
 
-  const [cards, setCards] = useState<Card[]>(initialCards);
+  const [cards, setCards] = useState<Card[]>(listCards);
 
   return (
     <CardsContext.Provider value={{ cards, setCards }}>
