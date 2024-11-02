@@ -28,7 +28,7 @@ export default function LastRevenues(){
                     </button>
                 </div>
             </div>
-            <div className="lg:hidden tsm:hidden tmd:hidden">
+            <div className="lg:hidden tsm:hidden">
                 <Ads width="280" height="550" />
             </div>
         </section>
