@@ -16,7 +16,6 @@ type SignInSchema = z.infer<typeof signInSchema>
 export default function SignIn() {
 
  const navigate = useNavigate()
-
    
  const { register, handleSubmit, formState: {errors} } = useForm<SignInSchema>({
     resolver: zodResolver(signInSchema)

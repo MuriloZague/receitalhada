@@ -12,9 +12,9 @@ export default function Search() {
                 </div>
                 <div className="flex w-2/3 searchbar tsm:w-full lg:items-center tlg:items-center">
                     <input type="text" placeholder="Procure por uma receita" 
-                    className="bg-red-500 w-3/4 rounded-full text-xl search mt-4 tsm:mt-0 outline-none tsm:p-4 tlg:mt-0 lg:w-full tlg:h-16 lg:h-16 lg:text-lg tsm:w-full tsm:text-base tsm:pl-16"/>
+                    className="bg-red-500 w-3/4 rounded-full text-xl search mt-4 txl:mt-[1.3rem] tsm:mt-0 outline-none tsm:p-4 tlg:mt-0 lg:w-full tlg:h-16 txl:h-14 lg:h-16 lg:text-lg tsm:w-full tsm:text-base tsm:pl-16"/>
 
-                    <img src={FILTER} className='w-9 h-9 mt-8 ml-6 tsm:hidden lg:hidden tmd:hidden tlg:hidden' alt="" />
+                    <img src={FILTER} className='w-9 h-9 mt-8 ml-6 tlg:mt-0 tsm:hidden lg:hidden tmd:hidden ' alt="" />
                 </div>
             </div>
         </section>
