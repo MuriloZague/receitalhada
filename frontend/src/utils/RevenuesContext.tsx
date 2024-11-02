@@ -47,11 +47,10 @@ export const RevenuesProvider: React.FC<{ children: ReactNode }> = ({ children }
   );
 };
 
-// Hook para usar o context
 export const useRevenues = () => {
   const context = useContext(RevenuesContext);
   if (!context) {
-    throw new Error('erro');
+    throw new Error('revenuescontext error');
   }
   return context;
 };

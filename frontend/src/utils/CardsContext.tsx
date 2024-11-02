@@ -22,6 +22,7 @@ const CardsContext = createContext<CardsContextType | undefined>(undefined);
 export const CardsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
 
+  // não usar banco de dados para os cartões (ou usa, sei la)
   const listCards: Card[] = [
     { title: 'Receitas Brasileiras', src: REVENUES },
     { title: 'Massas', src: PASTA },
@@ -40,11 +41,10 @@ export const CardsProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   );
 };
 
-// Hook para usar o context
 export const useCards = () => {
   const context = useContext(CardsContext);
   if (!context) {
-    throw new Error('useCards must be used within a CardsProvider');
+    throw new Error('cardscontext error');
   }
   return context;
 };
