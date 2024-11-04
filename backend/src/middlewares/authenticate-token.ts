@@ -7,6 +7,7 @@ import AppError from "../errors/app-error.js";
 import { ErrorCode } from "../errors/errors.js";
 
 import { tokenIsValid } from "../utils/auth.js";
+import { errorHandler } from "../errors/error-handler.js";
 
 export default async function AuthenticateToken(req: UserRequest, res: Response, next: NextFunction) {
     const authHeader = req.headers.authorization;
@@ -37,6 +38,12 @@ export default async function AuthenticateToken(req: UserRequest, res: Response,
         req.user = user;
         next();
     } catch (error) {
-        return next(res.status(500).json({ error: error.message, code: error.code }));
+        const result = errorHandler(error);
+        if (result.type === 'left') {
+            const handledError = result.error;
+            res.status(500).json({ error: handledError.message, code: handledError.code });
+            return;
+        }
+        next(error);
     }
 }
