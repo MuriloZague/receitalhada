@@ -8,18 +8,20 @@ datasource db {
 }
 
 model Users {
-  id_user     Int           @id @default(autoincrement())
-  email       String        @unique
-  name        String
-  username    String        @unique
-  img_url     String?
-  phone       String
-  password    String
-  Receitas    Receitas[]
-  Admins      Admins[]
-  Favoritos   Favoritos[]
-  Comentarios Comentarios[]
-  Avaliacoes  Avaliacoes[]
+  id_user           Int           @id @default(autoincrement())
+  email             String        @unique
+  name              String
+  username          String        @unique
+  img_url           String?
+  phone             String
+  password          String
+  authenticate_code String?       @unique
+  register_at       DateTime?
+  Receitas          Receitas[]
+  Admins            Admins[]
+  Favoritos         Favoritos[]
+  Comentarios       Comentarios[]
+  Avaliacoes        Avaliacoes[]
 }
 
 model Admins {
