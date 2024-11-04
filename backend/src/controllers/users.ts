@@ -35,7 +35,12 @@ class UserController extends Controller<Users> {
         let id_user: number = Number(req.params.id) ?? 0;
 
         const result = await this.handler(async () => {
-            const user = await prisma.users.findUniqueOrThrow({ where: { id_user } });
+            const user = await prisma.users.findUniqueOrThrow({
+                select: {
+                    id_user: true, name: true, username: true, email: true, phone: true, img_url: true,
+                },
+                where: { id_user }
+            });
             return user;
         })
 
@@ -56,11 +61,11 @@ class UserController extends Controller<Users> {
 
         // Separa o campo e a direção para ordenar
         const orderBy = [];
-        let [orderField, orderDirection]: string[] = (order as string).toLowerCase().split(";");
 
         const result = await this.handler(async () => {
             // Se informou ordem
-            if (order)
+            if (order) {
+                let [orderField, orderDirection]: string[] = ((order as string).toLowerCase()).split(";");
                 // O campo precisa fazer parte dos campos da model
                 if (fields.includes(orderField)) {
                     if (!(['asc', 'desc'].includes(orderDirection)))
@@ -72,8 +77,14 @@ class UserController extends Controller<Users> {
                 } else {
                     throw new AppError(`The property "${orderField}" does not exist in the model`, ErrorCode.VALIDATION_ERROR);
                 }
+            }
 
-            const users = await prisma.users.findMany({ skip, take, orderBy });
+            const users = await prisma.users.findMany({
+                select: {
+                    id_user: true, name: true, username: true, email: true, phone: true, img_url: true,
+                },
+                skip, take, orderBy
+            });
             const totalUsers = await prisma.users.count();
             return {
                 users,
