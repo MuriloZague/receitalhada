@@ -12,6 +12,8 @@ import AppError from '../errors/app-error.js';
 import { isValidDDD } from '../utils/phone.js';
 import { decrypt, encrypt } from '../utils/hash.js';
 import { auth } from '../utils/auth.js';
+import { generateAuthCode, sendMail } from '../utils/mailer.js';
+import UserRequest from '../types/Request.js';
 
 class UserController extends Controller<Users> {
     constructor() { super(); }
@@ -24,8 +26,16 @@ class UserController extends Controller<Users> {
 
             data.password = await encrypt(data.password);
 
-            const user = await prisma.users.create({ data });
-            return user;
+            const authenticate_code = generateAuthCode();
+            await sendMail(data.email, 'Confirme seu email', 'Código de autentificação: ' + authenticate_code)
+
+            const user = await prisma.users.create({
+                data: { ...data, authenticate_code },
+                select: {
+                    id_user: true, name: true, username: true, email: true, phone: true, img_url: true,
+                },
+            });
+            return { message: 'Your email address is not authenticate, please check your inbox', data: user };
         })
 
         return this.handleResponse(res, result)
@@ -109,6 +119,9 @@ class UserController extends Controller<Users> {
             else
                 throw new AppError('The authentication credentials have not been entered', ErrorCode.VALIDATION_ERROR);
 
+            if (!user.register_at)
+                throw new AppError('Your email address is not authenticate, please check your inbox.', ErrorCode.VALIDATION_ERROR);
+
             const passwordsIsEquals = await decrypt(data.password, user.password);
             if (!passwordsIsEquals)
                 throw new AppError('The entered password is not equal to the user\'s password', ErrorCode.VALIDATION_ERROR);
@@ -117,6 +130,31 @@ class UserController extends Controller<Users> {
             const token = jwt.sign({ id_user: user.id_user }, secret, { expiresIn })
 
             return { token };
+        });
+
+        return this.handleResponse(res, result);
+    }
+
+    public async authEmail(req: UserRequest, res: Response): Promise<Response> {
+        const result = await this.handler(async () => {
+            const { id_user, authenticate_code } = req.body;
+
+            if (!authenticate_code)
+                throw new AppError('Authenticate code is not found', ErrorCode.VALIDATION_ERROR);
+
+            const user = await prisma.users.findUniqueOrThrow({ where: { authenticate_code } });
+
+            if (user.id_user != Number(id_user))
+                throw new AppError('Authenticate code is invalid', ErrorCode.VALIDATION_ERROR);
+
+            await prisma.users.update({
+                where: { id_user: user.id_user },
+                data: { authenticate_code: null, register_at: new Date() }
+            });
+
+            return {
+                'message': 'User\'s email has register!'
+            };
         });
 
         return this.handleResponse(res, result);

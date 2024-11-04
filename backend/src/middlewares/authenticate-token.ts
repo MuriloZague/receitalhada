@@ -31,11 +31,16 @@ export default async function AuthenticateToken(req: UserRequest, res: Response,
                 username: true,
                 email: true,
                 phone: true,
-                img_url: true
+                img_url: true,
+                register_at: true
             }, where: { id_user: Number(payload.id_user) }
         });
 
         req.user = user;
+
+        if (!user.register_at)
+            throw new AppError('Your email address is not authenticate, please check your inbox.', ErrorCode.VALIDATION_ERROR);
+
         next();
     } catch (error) {
         const result = errorHandler(error);
