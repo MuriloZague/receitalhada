@@ -2,7 +2,7 @@ import Controller from './controller.js';
 import { Request, Response } from "express";
 
 import { prisma } from '../index.js';
-import { Users } from '@prisma/client';
+import { Prisma, Users } from '@prisma/client';
 
 import { ErrorCode } from '../errors/errors.js';
 import AppError from '../errors/app-error.js';
@@ -37,30 +37,48 @@ class UserController extends Controller<Users> {
     }
 
     public async listAllUsers(req: Request, res: Response): Promise<Response> {
-        const { page = 1, limit = 10 } = req.query;
+        // Cria um array com os campos do modelo
+        const fields = Object.values(Prisma.UsersScalarFieldEnum) as string[];
 
+        // Obtém os possíveis query parameters
+        const { page = 1, limit = 10, order } = req.query;
+
+        // Obtém o número da página, o limite e a quantidade de campos a pular
         const pageNumber = Number(page);
-        const pageSize = Number(limit);
+        const take = Number(limit);
+        const skip = (pageNumber - 1) * take;
+
+        // Separa o campo e a direção para ordenar
+        const orderBy = [];
+        let [orderField, orderDirection]: string[] = (order as string).toLowerCase().split(";");
 
         const result = await this.handler(async () => {
-            const users = await prisma.users.findMany({
-                skip: (pageNumber - 1) * pageSize,
-                take: pageSize,
-            });
+            // Se informou ordem
+            if (order)
+                // O campo precisa fazer parte dos campos da model
+                if (fields.includes(orderField)) {
+                    if (!(['asc', 'desc'].includes(orderDirection)))
+                        orderDirection = 'asc';
 
+                    // Monta string com o campo e a direção (padrão: asc)
+                    const orderString = JSON.parse(`{"${orderField}": "${orderDirection}"}`);
+                    orderBy.push(orderString);
+                } else {
+                    throw new AppError(`The property "${orderField}" does not exist in the model`, ErrorCode.VALIDATION_ERROR);
+                }
+
+            const users = await prisma.users.findMany({ skip, take, orderBy });
             const totalUsers = await prisma.users.count();
-
             return {
                 users,
                 total: totalUsers,
                 page: pageNumber,
-                lastPage: Math.ceil(totalUsers / pageSize),
+                lastPage: Math.ceil(totalUsers / take),
             };
         });
 
         return this.handleResponse(res, result);
     }
-
 
     public validate(data: Users) {
         // Verifica formato do email
