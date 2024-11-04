@@ -16,6 +16,10 @@ export const errorHandler = (error: any): Left<AppError> => {
             return left(new AppError('Foreign key constraint failed', ErrorCode.FOREIGN_KEY_CONSTRAINT_ERROR));
         }
 
+        if (error.code === 'P2025') {
+            return left(new AppError('Record not found', ErrorCode.RECORD_NOT_FOUND_ERROR));
+        }
+
         // Erro genérico do Prisma
         return left(new AppError('Prisma Error', ErrorCode.UNKNOWN_PRISMA_ERROR));
     }
