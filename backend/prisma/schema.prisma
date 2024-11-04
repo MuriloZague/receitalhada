@@ -14,6 +14,7 @@ model Users {
   username    String        @unique
   img_url     String?
   phone       String
+  password    String
   Receitas    Receitas[]
   Admins      Admins[]
   Favoritos   Favoritos[]
