@@ -1,10 +1,7 @@
-import dotenv from 'dotenv';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
 import AppError from '../errors/app-error.js';
 import { ErrorCode } from '../errors/errors.js';
-
-dotenv.config();
 
 export const auth = {
   secret: String(process.env.JWT_TOKEN),
