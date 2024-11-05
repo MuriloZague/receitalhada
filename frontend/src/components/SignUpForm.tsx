@@ -5,7 +5,11 @@ import { useNavigate } from 'react-router-dom';
 
 const signUpSchema = z.object({
     nome: z.string().min(1, { message: 'Este campo é obrigatório' }),
+    username: z.string().min(1, { message: 'Este campo é obrigatório' }),
     email: z.string().min(1, { message: 'O e-mail é obrigatório' }).email({ message: 'Formato de e-mail inválido' }),
+    telefone: z.string()
+        .min(11, { message: 'O telefone deve ter no mínimo 11 dígitos' })
+        .regex(/^\d+$/, { message: 'O telefone deve conter apenas números' }),
     senha: z.string().min(6, { message: 'A senha deve ter no mínimo 6 caracteres' }),
     csenha: z.string().min(1, { message: 'Este campo é obrigatório' }),
 }).refine((data) => data.senha === data.csenha, {
@@ -31,7 +35,7 @@ export default function SignUp() {
     };
 
     return (
-        <section className="m-auto mt-12 tsm:mt-10 lg:w-2/3 tlg:w-2/3 w-[45%] tsm:w-11/12 rounded-lg p-5 px-10 mb-12 tsm:mb-10" style={{'backgroundColor': '#d9d9d9'}}>
+        <section className="m-auto mt-12 tsm:mt-10 lg:w-2/3 txl:w-[48%] tlg:w-2/3 w-[42%] tsm:w-11/12 rounded-lg p-5 px-10 mb-12 tsm:mb-10" style={{'backgroundColor': '#d9d9d9'}}>
             <div className="mb-4 tsm:mb-2 ">
                 <p className="receita text-4xl tsm:text-[1.6rem] text-center font-bold tsm:leading-8"><span className="textorange">Bem vindo ao</span> Receitalhada!</p>
             </div>
@@ -43,9 +47,17 @@ export default function SignUp() {
                 <input className="border border-customStoke mt-2 p-2 rounded-md inter text-lg tsm:text-sm" type="text" placeholder="Seu Nome" {...register('nome', { required: true })}/>
                 {errors.nome && <p className="text-red-500 tsm:text-sm">{errors.nome.message}</p>}
 
+                <label htmlFor="nome" className="text-2xl tsm:text-xl inter font-bold mt-5 ml-1">Usuário</label>
+                <input className="border border-customStoke mt-2 p-2 rounded-md inter text-lg tsm:text-sm" type="text" placeholder="Seu Nome de Usuário" {...register('username', { required: true })}/>
+                {errors.username && <p className="text-red-500 tsm:text-sm">{errors.username.message}</p>}
+
                 <label htmlFor="email" className="text-2xl tsm:text-xl inter font-bold mt-4 ml-1">E-mail</label>
                 <input className="border border-customStoke mt-2 p-2 rounded-md inter text-lg tsm:text-sm" type="email" placeholder="email@email.com" {...register('email', { required: true })}/>
                 {errors.email && <p className="text-red-500 tsm:text-sm">{errors.email.message}</p>}
+
+                <label htmlFor="telefone" className="text-2xl tsm:text-xl inter font-bold mt-5 ml-1">Telefone</label>
+                <input className="border border-customStoke mt-2 p-2 rounded-md inter text-lg tsm:text-sm" type="text" placeholder="(12) 34567-8910" {...register('telefone', { required: true })}/>
+                {errors.telefone && <p className="text-red-500 tsm:text-sm">{errors.telefone.message}</p>}
 
                 <label className="text-2xl tsm:text-xl inter font-bold mt-4 ml-1" htmlFor="senha">Senha</label>
                 <input className="border border-customStoke mt-2 p-2 rounded-md inter text-lg tsm:text-sm" type="password" placeholder="**********" {...register('senha', { required: true })}/>

@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom'
 
 
 const signInSchema = z.object({
-    email: z.string().min(1, { message: 'O e-mail é obrigatório' }).email({ message: 'Formato de e-mail inválido' }),
-    senha: z.string().min(6, { message: 'A senha deve ter no mínimo 6 caracteres' }),
-    remember: z.boolean(),
+    indentifier: z.string().min(1, { message: 'Nome de usuário ou E-mail obrigatório' }),
+    senha: z.string().min(6, { message: 'Campo senha obrigatório' }),
+    remember: z.boolean().optional(),
 })
 
 type SignInSchema = z.infer<typeof signInSchema>
@@ -16,7 +16,6 @@ type SignInSchema = z.infer<typeof signInSchema>
 export default function SignIn() {
 
  const navigate = useNavigate()
-
    
  const { register, handleSubmit, formState: {errors} } = useForm<SignInSchema>({
     resolver: zodResolver(signInSchema)
@@ -35,7 +34,7 @@ export default function SignIn() {
 
  return (
 
-    <section className="m-auto tsm:w-11/12 lg:w-2/3 tlg:w-2/3 w-[45%] tsm:mt-10 mt-12 rounded-lg p-5 px-10 mb-10" style={{'backgroundColor': '#d9d9d9'}}>
+    <section className="m-auto tsm:w-11/12 lg:w-2/3 tlg:w-2/3 w-[42%] txl:w-[48%] tsm:mt-10 mt-12 rounded-lg p-5 px-10 mb-10" style={{'backgroundColor': '#d9d9d9'}}>
         <div className="mb-4 tsm:mb-2">
             <p className="receita text-4xl tsm:text-[1.6rem] text-center font-bold"><span className="textorange">Bem vindo</span> de volta!</p>
         </div>
@@ -43,10 +42,10 @@ export default function SignIn() {
 
     <form onSubmit={handleSubmit(handleSignIn)} className="flex flex-col">
 
-        <label htmlFor="email" className="text-2xl tsm:text-xl inter font-bold mt-7 tsm:mt-5 ml-1">E-mail</label>
-        <input className="border border-customStoke mt-2 p-2 rounded-md inter text-lg tsm:text-sm" type="email" placeholder="email@email.com" {...register('email', {required: true})}/>
-        {errors.email && (
-          <p className="text-red-500 tsm:text-sm">{errors.email.message}</p>
+        <label htmlFor="email" className="text-2xl tsm:text-xl inter font-bold mt-7 tsm:mt-5 ml-1">E-mail ou Usuário</label>
+        <input className="border border-customStoke mt-2 p-2 rounded-md inter text-lg tsm:text-sm" type="text" placeholder="email ou usuário" {...register('indentifier', {required: true})}/>
+        {errors.indentifier && (
+          <p className="text-red-500 tsm:text-sm">{errors.indentifier.message}</p>
         )}
 
         <label className="text-2xl tsm:text-xl inter font-bold mt-4 ml-1" htmlFor="senha">Senha</label>

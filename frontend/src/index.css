@@ -39,12 +39,25 @@
 .searchbar {
     display: flex;
     justify-content: flex-end;
-}
-
-.bg-grow:hover {
-    background-size: 120%; /* Aumenta a imagem no hover */
+    
 }
 
 .line {
     background-color: #B8B8B8;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-pop {
+    animation: pop 0.3s ease;
 }
