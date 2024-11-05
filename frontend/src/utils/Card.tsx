@@ -3,8 +3,8 @@ import { useCards } from "./CardsContext";
 export default function Card() {
 
   const { cards } = useCards();
-  return (
 
+  return (
     <section className="scroll-container scrollbar scrollbar-thumb-blue-500 flex gap-10 tsm:gap-6 overflow-x-auto py-6 ease-out px-2">
       {cards.map((source, index) => (
         <div
@@ -19,6 +19,7 @@ export default function Card() {
             transition: '350ms'
           }}
         >
+
           <div className="flex w-full h-full items-center justify-center">
             <p className="text-xl tsm:text-base text-center text-white max-w-40 leading-tight receita">
               {source.title}

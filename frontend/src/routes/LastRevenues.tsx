@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import Revenues from "../utils/Revenues";
 import Ads from "../components/Ads";
+
 import Seta from '../assets/seta.svg'
 
 export default function LastRevenues(){

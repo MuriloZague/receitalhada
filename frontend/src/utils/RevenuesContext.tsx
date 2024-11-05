@@ -9,7 +9,7 @@ import CHURRASCO from '../assets/revenues/churrasco.png'
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-// dados receita
+// dados das receitas
 interface Revenue {
   id: string;
   title: string;

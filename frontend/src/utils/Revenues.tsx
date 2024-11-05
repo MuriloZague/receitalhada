@@ -34,6 +34,7 @@ export default function Revenues() {
     };
 
     return (
+        
         <section className="mb-10 flex flex-col justify-center">
             <div className="flex flex-wrap gap-16 tlg:gap-7 tsm:gap-9 txl:gap-10 mt-5 tsm:mt-0 tsm:flex-col">
                 {revenues.map((revenue, index) => (

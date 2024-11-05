@@ -23,7 +23,8 @@ const CardsContext = createContext<CardsContextType | undefined>(undefined);
 export const CardsProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
  
-  // não usar banco de dados / API para os cartões (ou usa, sei la) pois eles representam as categorias das receitas e somos nos que vamos adicionar as categorias
+  // não usar banco de dados / API para os cartões (ou usa, sei la) pois eles representam as categorias 
+  // das receitas e somos nos que vamos adicionar as categorias
   const listCards: Card[] = [
     { title: 'Receitas Brasileiras', src: REVENUES },
     { title: 'Massas', src: PASTA },

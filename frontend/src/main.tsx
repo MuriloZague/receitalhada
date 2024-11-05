@@ -5,19 +5,21 @@ import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
+// Components
 import LoginPage from './routes/LoginPage.tsx'
 import Cadastro from './routes/SignUp.tsx'
 import Erro from './routes/Error.tsx'
 import ForgotPass from './routes/ForgotPass.tsx'
 import AllRevenues from './routes/AllRevenues.tsx'
 
+// Providers
 import { RevenuesProvider } from './utils/RevenuesContext.tsx';
 import { CardsProvider } from './utils/CardsContext';
 
 const router = createBrowserRouter([
   {
     path: '/', element: <App />,
-    errorElement: <Erro />
+    errorElement: <Erro /> // Error 404! page
   },
   {
     path: '/login', element: <LoginPage />
