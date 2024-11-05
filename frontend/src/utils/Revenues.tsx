@@ -35,21 +35,21 @@ export default function Revenues() {
 
     return (
         <section className="mb-10 flex flex-col justify-center">
-            <div className="flex flex-wrap gap-14 tlg:gap-7 tsm:gap-9 txl:gap-10 mt-5 tsm:mt-0 tsm:flex-col">
+            <div className="flex flex-wrap gap-16 tlg:gap-7 tsm:gap-9 txl:gap-10 mt-5 tsm:mt-0 tsm:flex-col">
                 {revenues.map((revenue, index) => (
                     <div className='w-[43%] tsm:w-full lg:w-[45%] txl:w-[44%] tlg:w-[46%] tsm:px-2 mb-2' key={revenue.id}>
                         <div className='flex justify-center'>
-                            <div className='flex max-w-[22rem] h-11 items-center'>
-                                <p className='text-2xl receita text-center cursor-pointer'>{revenue.title}</p>
+                            <div className='flex max-w-[24rem] h-11 items-center'>
+                                <p className='text-[1.65rem] tsm:text-2xl tlg:text-2xl lg:text-2xl receita text-center cursor-pointer'>{revenue.title}</p>
                             </div>
                         </div>
 
-                        <div className='items-center flex justify-between mt-4 px-2'>
-                            <div className='flex gap-1 items-center'>
+                        <div className='items-center flex justify-between mt-6 px-2'>
+                            <div className='flex gap-1 tsm:items-center'>
                                 <StarRating rating={revenue.rating} />
-                                <p className='inter text-customGray text-[0.9rem] tsm:text-xs'>{revenue.rating.toFixed(1)}</p>
+                                <p className='inter text-customGray text-[0.95rem] tsm:text-xs'>{revenue.rating.toFixed(1)}</p>
                             </div>
-                            <p className=' inter text-customGray text-[0.9rem] leading-tight tsm:text-xs'>{revenue.date}</p>
+                            <p className=' inter text-customGray text-[0.95rem] leading-tight tsm:text-xs'>{revenue.date}</p>
                         </div>
 
                         <div className="relative bg-gray-300 w-full h-[25rem] txl:h-[24rem] tsm:h-60 tlg:h-[18rem] lg:h-64 mt-1 rounded-sm overflow-hidden cursor-pointer">

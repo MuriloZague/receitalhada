@@ -13,13 +13,13 @@ export default function LastRevenues(){
     }
  
     return(
-        <section className="mt-8 w-full flex mb-20">
+        <section className="mt-8 w-full flex mb-64 justify-between" >
             <div className="tsm:w-full w-[80%] lg:w-full">
-                <div className="mb-10 tsm:mb-5">
-                    <p className="inter text-4xl font-bold tsm:text-2xl tsm:text-center">Ultimas <span className="textorange">Receitas</span></p>
+                <div className="mb-8 tsm:mb-8">
+                    <p className="inter text-4xl font-bold tsm:text-3xl tsm:text-center">Ultimas <span className="textorange">Receitas</span></p>
                 </div>
                 <Revenues />
-                <div className="flex justify-center txl:pr-20 pr-24 tlg:pr-12 lg:pr-0 tsm:pr-0">
+                <div className="flex justify-center txl:pr-20 pr-20 tlg:pr-12 lg:pr-0 tsm:pr-0">
                     <button onClick={() => gotToAllRevenues()} className="bg-customOrange p-3 px-5 rounded-full">
                         <div className="flex gap-4">
                             <p className="inter text-white text-lg font-bold">Ver todas as receitas</p>
@@ -29,7 +29,7 @@ export default function LastRevenues(){
                 </div>
             </div>
             <div className="lg:hidden tsm:hidden">
-                <Ads width="280" height="550" />
+                <Ads width="250" height="500" />
             </div>
         </section>
     )

@@ -39,6 +39,7 @@
 .searchbar {
     display: flex;
     justify-content: flex-end;
+    
 }
 
 .line {

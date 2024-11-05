@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import Search from "./components/Search"
 import Cards from "./components/ListCard"
 import Revenues from "./routes/LastRevenues"
+import Footer from "./components/Footer"
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Cards />
         <Revenues />
       </div>
+        <Footer />
     </div>
   )
 }

@@ -34,7 +34,7 @@ export default function SignIn() {
 
  return (
 
-    <section className="m-auto tsm:w-11/12 lg:w-2/3 tlg:w-2/3 w-[45%] tsm:mt-10 mt-12 rounded-lg p-5 px-10 mb-10" style={{'backgroundColor': '#d9d9d9'}}>
+    <section className="m-auto tsm:w-11/12 lg:w-2/3 tlg:w-2/3 w-[42%] txl:w-[48%] tsm:mt-10 mt-12 rounded-lg p-5 px-10 mb-10" style={{'backgroundColor': '#d9d9d9'}}>
         <div className="mb-4 tsm:mb-2">
             <p className="receita text-4xl tsm:text-[1.6rem] text-center font-bold"><span className="textorange">Bem vindo</span> de volta!</p>
         </div>

@@ -3,7 +3,6 @@ import { useCards } from "./CardsContext";
 export default function Card() {
 
   const { cards } = useCards();
-
   return (
 
     <section className="scroll-container scrollbar scrollbar-thumb-blue-500 flex gap-10 tsm:gap-6 overflow-x-auto py-6 ease-out px-2">

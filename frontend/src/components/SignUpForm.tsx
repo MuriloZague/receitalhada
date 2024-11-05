@@ -31,7 +31,7 @@ export default function SignUp() {
     };
 
     return (
-        <section className="m-auto mt-12 tsm:mt-10 lg:w-2/3 tlg:w-2/3 w-[45%] tsm:w-11/12 rounded-lg p-5 px-10 mb-12 tsm:mb-10" style={{'backgroundColor': '#d9d9d9'}}>
+        <section className="m-auto mt-12 tsm:mt-10 lg:w-2/3 txl:w-[48%] tlg:w-2/3 w-[42%] tsm:w-11/12 rounded-lg p-5 px-10 mb-12 tsm:mb-10" style={{'backgroundColor': '#d9d9d9'}}>
             <div className="mb-4 tsm:mb-2 ">
                 <p className="receita text-4xl tsm:text-[1.6rem] text-center font-bold tsm:leading-8"><span className="textorange">Bem vindo ao</span> Receitalhada!</p>
             </div>
