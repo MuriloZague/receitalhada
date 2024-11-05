@@ -8,7 +8,7 @@ const signUpSchema = z.object({
     username: z.string().min(1, { message: 'Este campo é obrigatório' }),
     email: z.string().min(1, { message: 'O e-mail é obrigatório' }).email({ message: 'Formato de e-mail inválido' }),
     telefone: z.string()
-        .min(10, { message: 'O telefone deve ter no mínimo 10 dígitos' })
+        .min(11, { message: 'O telefone deve ter no mínimo 11 dígitos' })
         .regex(/^\d+$/, { message: 'O telefone deve conter apenas números' }),
     senha: z.string().min(6, { message: 'A senha deve ter no mínimo 6 caracteres' }),
     csenha: z.string().min(1, { message: 'Este campo é obrigatório' }),
