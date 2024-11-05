@@ -5,7 +5,6 @@ import AuthenticateToken from "../middlewares/authenticate-token.js";
 
 import UserController from "../controllers/users.js";
 import UserRequest from "../types/Request.js";
-// import UserRequest from "../types/Request.js";
 
 class UserRouter extends Router {
     private controller: UserController;
@@ -27,7 +26,7 @@ class UserRouter extends Router {
         this.router.get('/', async (req: Request, res: Response) => { this.controller.listAllUsers(req, res) });
         this.router.get('/signed', async (req: UserRequest, res: Response) => { this.controller.listUserSigned(req, res) });
         this.router.get('/:id', async (req: UserRequest, res: Response) => { this.controller.listUserById(req, res) });
-        // this.router.head('/edit', async (req: UserRequest, res: Response) => { this.controller.editUser(req, res) });
+        this.router.patch('/', async (req: UserRequest, res: Response) => { this.controller.editUser(req, res) });
     }
 }
 

@@ -278,26 +278,46 @@ class UserController extends Controller<Users> {
         return this.handleResponse(res, result)
     }
 
-    /*public async editUser(req: UserRequest, res: Response): Promise<Response> {
-        const id_user = req.user.id_user;
+    public async editUser(req: UserRequest, res: Response): Promise<Response> {
+        const currentUser = req.user;
         const data = req.body;
 
-        const result = this.handler(async () => {
+        const result = await this.handler(async () => {
             this.validate(data);
 
             if (!data)
                 throw new AppError('There is no data to change', ErrorCode.VALIDATION_ERROR);
 
-            const user: Users = await prisma.users.update({
-                where: { id_user },
-                data
-            });
+            const { email, name, username, img_url, phone } = data;
 
-            return user;
+            const updateData: { [key: string]: string | undefined } = {};
+
+            if (email && email !== currentUser.email) updateData.email = email;
+            if (name && name !== currentUser.name) updateData.name = name;
+            if (username && username !== currentUser.username) updateData.username = username;
+            if (img_url && img_url !== currentUser.img_url) updateData.img_url = img_url;
+            if (phone && phone !== currentUser.phone) updateData.phone = phone;
+
+            if (Object.keys(updateData).length > 0)
+                return await prisma.users.update({
+                    where: { id_user: currentUser.id_user },
+                    data: updateData,
+                    select: {
+                        id_user: true,
+                        name: true,
+                        username: true,
+                        email: true,
+                        phone: true,
+                        img_url: true,
+                        register_at: true
+                    }
+                });
+            else
+                return currentUser;
         });
 
         return this.handleResponse(res, result);
-    }*/
+    }
 
     public validate(data: any) {
         // Verifica formato do email
