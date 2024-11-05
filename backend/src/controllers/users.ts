@@ -41,7 +41,7 @@ class UserController extends Controller<Users> {
         return this.handleResponse(res, result)
     }
 
-    public async listUserById(req: Request, res: Response): Promise<Response> {
+    public async listUserById(req: UserRequest, res: Response): Promise<Response> {
         let id_user: number = Number(req.params.id) ?? 0;
 
         const result = await this.handler(async () => {
@@ -52,6 +52,14 @@ class UserController extends Controller<Users> {
                 where: { id_user }
             });
             return user;
+        })
+
+        return this.handleResponse(res, result)
+    }
+
+    public async listUserSigned(req: UserRequest, res: Response): Promise<Response> {
+        const result = await this.handler(() => {
+            return req.user;
         })
 
         return this.handleResponse(res, result)
@@ -135,7 +143,7 @@ class UserController extends Controller<Users> {
         return this.handleResponse(res, result);
     }
 
-    public async authEmail(req: UserRequest, res: Response): Promise<Response> {
+    public async authEmail(req: Request, res: Response): Promise<Response> {
         const result = await this.handler(async () => {
             const { id_user, authenticate_code } = req.body;
 

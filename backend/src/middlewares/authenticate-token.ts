@@ -22,7 +22,7 @@ export default async function AuthenticateToken(req: UserRequest, res: Response,
     }
 
     try {
-        const payload = tokenIsValid(token) as { id_user: number };
+        const { id_user } = tokenIsValid(token) as { id_user: number };
 
         const user = await prisma.users.findUniqueOrThrow({
             select: {
@@ -33,7 +33,7 @@ export default async function AuthenticateToken(req: UserRequest, res: Response,
                 phone: true,
                 img_url: true,
                 register_at: true
-            }, where: { id_user: Number(payload.id_user) }
+            }, where: { id_user }
         });
 
         req.user = user;
