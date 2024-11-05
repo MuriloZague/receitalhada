@@ -24,7 +24,7 @@
     "vitest": "~2.1"
   },
   "scripts": {
-    "start": "node dist/src/main.js",
+    "start": "node dist/src/index.js",
     "dev": "nodemon",
     "ps": "prisma studio",
     "dev:ps": "npm-run-all --parallel ps dev",
