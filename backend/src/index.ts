@@ -3,6 +3,7 @@ import express, { Express, Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 
 import UserRouter from './routers/users.js';
+import RecipeRouter from './routers/recipes.js';
 
 // Inicializa o uso de dotenv no arquivo
 dotenv.config();
@@ -23,6 +24,10 @@ app.get('/up', (req: Request, res: Response) => {
 // Rotas de usuários
 const usersRouter = new UserRouter();
 app.use('/users', usersRouter.getRoutes());
+
+// Rotas de receitas
+const recipesRouter = new RecipeRouter();
+app.use('/recipes', recipesRouter.getRoutes());
 
 // Obtém a porta da API através do arquivo .env (padrão 3000)
 const PORT = process.env.API_PORT ?? 3000;
