@@ -15,12 +15,20 @@ export class RecipeRouter extends Router {
   }
 
   protected setRoutes(): void {
-    this.router.get('/', OptionalAuthenticateToken, async (req: UserRequest, res: Response) => {
-      this.controller.listAllRecipes(req, res);
-    });
-    this.router.get('/:id', OptionalAuthenticateToken, async (req: UserRequest, res: Response) => {
-      this.controller.listRecipeById(req, res);
-    });
+    this.router.get(
+      '/',
+      OptionalAuthenticateToken,
+      async (req: UserRequest, res: Response) => {
+        this.controller.listAllRecipes(req, res);
+      },
+    );
+    this.router.get(
+      '/:id',
+      OptionalAuthenticateToken,
+      async (req: UserRequest, res: Response) => {
+        this.controller.listRecipeById(req, res);
+      },
+    );
 
     this.router.use(AuthenticateToken);
 
