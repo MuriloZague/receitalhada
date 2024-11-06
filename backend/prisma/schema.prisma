@@ -38,7 +38,7 @@ model Recipes {
   id_recipes        Int         @id @default(autoincrement())
   title             String      @db.VarChar(255)
   ingredients       String?
-  preparationMethod String?
+  preparation_method String?
   observation       String?
   user_id           Int
   User              Users       @relation(fields: [user_id], references: [id_user])
