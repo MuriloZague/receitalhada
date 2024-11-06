@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import express, { Express, Response } from 'express';
+import express, { Express, Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 
 import UserRouter from './routers/users.js';
@@ -16,7 +16,7 @@ const prisma = new PrismaClient();
 app.use(express.json());
 
 // Rota para testar a conectividade da API
-app.get('/up', (res: Response) => {
+app.get('/up', (req: Request, res: Response) => {
   res.status(202).json({ message: 'Server is up!' });
 });
 
