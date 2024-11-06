@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import express, { Express, Response } from "express";
+import express, { Express, Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 
 import UserRouter from './routers/users.js';
@@ -16,8 +16,8 @@ const prisma = new PrismaClient();
 app.use(express.json());
 
 // Rota para testar a conectividade da API
-app.get('/up', (res: Response) => {
-    res.status(202).json({ message: "Server is up!" });
+app.get('/up', (req: Request, res: Response) => {
+  res.status(202).json({ message: 'Server is up!' });
 });
 
 // Rotas de usuários
@@ -28,7 +28,9 @@ app.use('/users', usersRouter.getRoutes());
 const PORT = process.env.API_PORT ?? 3000;
 
 // Cria o servidor na porta passada e exibe o log
-const server = app.listen(PORT, () => console.log(`Server is running on port ${PORT}!`));
+const server = app.listen(PORT, () =>
+  console.log(`Server is running on port ${PORT}!`),
+);
 
 // Exporta as instâncias do app, server e prisma
 export { app, server, prisma };
