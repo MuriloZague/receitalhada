@@ -35,7 +35,7 @@ export default async function AuthenticateToken(
   try {
     const { id_user } = tokenIsValid(token) as { id_user: number };
 
-    const user = await prisma.users.findUniqueOrThrow({
+    const user = await prisma.users.findUnique({
       select: {
         id_user: true,
         name: true,
@@ -47,6 +47,12 @@ export default async function AuthenticateToken(
       },
       where: { id_user },
     });
+
+    if (!user)
+      throw new AppError(
+        'User has not found',
+        ErrorCode.RECORD_NOT_FOUND_ERROR,
+      );
 
     req.user = user;
 
