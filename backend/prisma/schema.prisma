@@ -8,24 +8,24 @@ datasource db {
 }
 
 model Users {
-  id_user                      Int           @id @default(autoincrement())
-  email                        String        @unique
+  id_user                      Int         @id @default(autoincrement())
+  email                        String      @unique
   name                         String
-  username                     String        @unique
+  username                     String      @unique
   img_url                      String?
   phone                        String
   password                     String
-  authenticate_code            String?       @unique
+  authenticate_code            String?     @unique
   register_at                  DateTime?
-  forgot_password_code         String?       @unique
+  forgot_password_code         String?     @unique
   forgot_password_expires_at   DateTime?
-  forgot_password_attempts     Int           @default(0)
+  forgot_password_attempts     Int         @default(0)
   forgot_password_attempted_at DateTime?
-  Receitas                     Receitas[]
+  Recipes                      Recipes[]
   Admins                       Admins[]
-  Favoritos                    Favoritos[]
-  Comentarios                  Comentarios[]
-  Avaliacoes                   Avaliacoes[]
+  Favorites                    Favorites[]
+  Comments                     Comments[]
+  Ratings                      Ratings[]
 }
 
 model Admins {
@@ -34,53 +34,53 @@ model Admins {
   user     Users @relation(fields: [user_id], references: [id_user])
 }
 
-model Receitas {
-  id_receitas            Int           @id @default(autoincrement())
-  title                  String        @db.VarChar(255)
-  ingredients            String?
-  preparationMethod      String?
-  observation            String?
-  author_id              Int
-  author                 Users         @relation(fields: [author_id], references: [id_user])
-  Favoritos              Favoritos[]
-  Comentarios            Comentarios[]
-  Avaliacoes             Avaliacoes[]
-  createdAt              DateTime      @default(now())
-  updatedAt              DateTime      @updatedAt
-  Categorias             Categorias?   @relation(fields: [categoriasId_categoria], references: [id_categoria])
-  categoriasId_categoria Int?
+model Recipes {
+  id_recipes           Int         @id @default(autoincrement())
+  title                String      @db.VarChar(255)
+  ingredients          String?
+  preparationMethod    String?
+  observation          String?
+  author_id            Int
+  author               Users       @relation(fields: [author_id], references: [id_user])
+  Favorites            Favorites[]
+  Comments             Comments[]
+  Ratings              Ratings[]
+  createdAt            DateTime    @default(now())
+  updatedAt            DateTime    @updatedAt
+  Categories           Categories? @relation(fields: [categorysId_category], references: [id_category])
+  categorysId_category Int?
 }
 
-model Favoritos {
-  id_favoritos Int      @id @default(autoincrement())
+model Favorites {
+  id_favorite Int     @id @default(autoincrement())
+  user_id     Int
+  recipe_id   Int
+  user        Users   @relation(fields: [user_id], references: [id_user])
+  recipe      Recipes @relation(fields: [recipe_id], references: [id_recipes])
+}
+
+model Comments {
+  id_comment Int      @id @default(autoincrement())
+  content    String
+  user_id    Int
+  recipe_id  Int
+  user       Users    @relation(fields: [user_id], references: [id_user])
+  recipe     Recipes  @relation(fields: [recipe_id], references: [id_recipes])
+  createdAt  DateTime @default(now())
+}
+
+model Ratings {
+  id_rating    Int      @id @default(autoincrement())
+  rating_value Float
   user_id      Int
-  receita_id   Int
+  recipe_id    Int
   user         Users    @relation(fields: [user_id], references: [id_user])
-  receita      Receitas @relation(fields: [receita_id], references: [id_receitas])
-}
-
-model Comentarios {
-  id_comentario Int      @id @default(autoincrement())
-  content       String
-  user_id       Int
-  receita_id    Int
-  user          Users    @relation(fields: [user_id], references: [id_user])
-  receita       Receitas @relation(fields: [receita_id], references: [id_receitas])
-  createdAt     DateTime @default(now())
-}
-
-model Avaliacoes {
-  id_avaliacao Int      @id @default(autoincrement())
-  rating       Float
-  user_id      Int
-  receita_id   Int
-  user         Users    @relation(fields: [user_id], references: [id_user])
-  receita      Receitas @relation(fields: [receita_id], references: [id_receitas])
+  recipe       Recipes  @relation(fields: [recipe_id], references: [id_recipes])
   createdAt    DateTime @default(now())
 }
 
-model Categorias {
-  id_categoria Int        @id @default(autoincrement())
-  name         String     @db.VarChar(255)
-  Receitas     Receitas[]
+model Categories {
+  id_category Int       @id @default(autoincrement())
+  name        String    @db.VarChar(255)
+  Recipes     Recipes[]
 }
