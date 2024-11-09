@@ -66,10 +66,10 @@ export default function Recipes() {
 
                         <div className='p-4 flex rounded-b-2xl items-center px-6 justify-between' style={{ boxShadow: '0 2px 4px 0 rgba(0,0,0,.20)' }}>
                             <div className='flex items-center gap-3'>
-                                <img src={revenue.perfil} alt="" className='w-[55px] tlg:w-[50px] cursor-pointer rounded-full border-orange-500 border-2 tsm:w-[50px]' />
-                                <p className='tsm:mt-[0.15rem] text-lg inter font-bold leading-tight tsm:text-base'>{revenue.name}</p>
+                                <img src={recipe.perfil} alt="" className='w-[55px] tlg:w-[50px] cursor-pointer rounded-full border-orange-500 border-2 tsm:w-[50px]' />
+                                <p className='tsm:mt-[0.15rem] text-lg inter font-bold leading-tight tsm:text-base'>{recipe.name}</p>
                             </div>
-                            <div onClick={() => handleSaveClick(index, revenue.id)}>
+                            <div onClick={() => handleSaveClick(index, recipe.id)}>
                                 <img 
                                     src={isSaved[index] ? Saved : Save} 
                                     className={`w-[30px] h-[35px] tlg:w-[22px] txl:w-[22px] lg:w-[20px] tsm:w-[20px] transition-transform duration-200 ${isSaved[index] ? 'animate-pop' : ''}`}
