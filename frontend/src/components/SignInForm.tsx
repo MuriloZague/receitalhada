@@ -43,7 +43,7 @@ export default function SignIn() {
     <form onSubmit={handleSubmit(handleSignIn)} className="flex flex-col">
 
         <label htmlFor="email" className="text-2xl tsm:text-xl inter font-bold mt-7 tsm:mt-5 ml-1">E-mail ou Usuário</label>
-        <input className="border border-customStoke mt-2 p-2 rounded-md inter text-lg tsm:text-sm" type="text" placeholder="email ou usuário" {...register('indentifier', {required: true})}/>
+        <input className="border border-customStoke mt-2 p-2 rounded-md inter text-lg tsm:text-sm" type="text" placeholder="Email ou Usuário" {...register('indentifier', {required: true})}/>
         {errors.indentifier && (
           <p className="text-red-500 tsm:text-sm">{errors.indentifier.message}</p>
         )}
