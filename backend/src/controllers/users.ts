@@ -1,10 +1,11 @@
 import Controller from './controller.js';
+
+import UserRequest from '../types/Request.js';
 import { Request, Response } from 'express';
-// import UserRequest from '../types/Request.js';
-import jwt from 'jsonwebtoken';
 
 import { prisma } from '../index.js';
 import { Prisma, Users } from '@prisma/client';
+import jwt from 'jsonwebtoken';
 
 import { ErrorCode } from '../errors/errors.js';
 import AppError from '../errors/app-error.js';
@@ -13,7 +14,7 @@ import { isValidDDD } from '../utils/phone.js';
 import { decrypt, encrypt } from '../utils/hash.js';
 import { auth } from '../utils/auth.js';
 import { generateAuthCode, sendMail } from '../utils/mailer.js';
-import UserRequest from '../types/Request.js';
+import { uploadImage, deleteImage } from '../utils/upload.js';
 
 class UserController extends Controller<Users> {
   constructor() {
@@ -407,9 +408,22 @@ class UserController extends Controller<Users> {
       if (name && name !== currentUser.name) updateData.name = name;
       if (username && username !== currentUser.username)
         updateData.username = username;
-      if (img_url && img_url !== currentUser.img_url)
-        updateData.img_url = img_url;
       if (phone && phone !== currentUser.phone) updateData.phone = phone;
+
+      if (req.file || !img_url) {
+        if (currentUser.img_url) {
+          await deleteImage(currentUser.img_url)
+          updateData.img_url = null;
+        }
+
+        if (req.file) {
+          const fileName = `${Date.now()}.jpg`;
+          const contentType = req.file.mimetype;
+
+          const imageUrl = await uploadImage(req.file.buffer, fileName, contentType);
+          updateData.img_url = imageUrl;
+        }
+      }
 
       if (Object.keys(updateData).length > 0)
         return await prisma.users.update({
