@@ -10,10 +10,10 @@ import LoginPage from './routes/LoginPage.tsx'
 import Cadastro from './routes/SignUp.tsx'
 import Erro from './routes/Error.tsx'
 import ForgotPass from './routes/ForgotPass.tsx'
-import AllRevenues from './routes/AllRevenues.tsx'
+import AllRecipes from './routes/AllRecipes.tsx'
 
 // Providers
-import { RevenuesProvider } from './utils/RevenuesContext.tsx';
+import { RecipesProvider } from './utils/RecipesContext.tsx';
 import { CardsProvider } from './utils/CardsContext';
 
 const router = createBrowserRouter([
@@ -31,16 +31,16 @@ const router = createBrowserRouter([
     path: '/esqueciasenha', element: <ForgotPass />
   },
   {
-    path: '/receitas', element: <AllRevenues />
+    path: '/receitas', element: <AllRecipes />
   }
 ])
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <CardsProvider>
-      <RevenuesProvider>
+      <RecipesProvider>
         <RouterProvider router={router} />
-      </RevenuesProvider>
+      </RecipesProvider>
     </CardsProvider>
   </StrictMode>,
 )

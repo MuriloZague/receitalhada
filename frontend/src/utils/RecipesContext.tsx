@@ -1,16 +1,16 @@
 //assets temporários perfis
-import F from '../assets/revenues/F.png'
-import M from '../assets/revenues/m.png'
+import F from '../assets/recipes/F.png'
+import M from '../assets/recipes/m.png'
 
 //assets temporarios receitas
-import CAKE from '../assets/revenues/bolo.jpg'
-import CONDENSADO from '../assets/revenues/condensado.jpg'
-import CHURRASCO from '../assets/revenues/churrasco.png'
+import CAKE from '../assets/recipes/bolo.jpg'
+import CONDENSADO from '../assets/recipes/condensado.jpg'
+import CHURRASCO from '../assets/recipes/churrasco.png'
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // dados das receitas
-interface Revenue {
+interface Recipe {
   id: string;
   title: string;
   src: string;
@@ -22,38 +22,38 @@ interface Revenue {
   rating: number;
 }
 
-interface RevenuesContextType {
-  revenues: Revenue[];
-  setRevenues: React.Dispatch<React.SetStateAction<Revenue[]>>;
+interface RecipesContextType {
+  recipes: Recipe[];
+  setRecipes: React.Dispatch<React.SetStateAction<Recipe[]>>;
 }
 
-const RevenuesContext = createContext<RevenuesContextType | undefined>(undefined);
+const RecipesContext = createContext<RecipesContextType | undefined>(undefined);
 
-export const RevenuesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const RecipesProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   // Dados exemplos temporários das receitas
   // Usar banco da dados / API para receitas
   // As receitas vão possuir categorias? como serão categorizadas?
-  const initialRevenues: Revenue[] = [
+  const initialRecipes: Recipe[] = [
     { id: '1', title: 'Bolos Famosos da Tia Flávia', src: CAKE, category: 'Bolos', perfil: F, name: 'Tia Flávia', date: '18/10/2024 às 15:35', likes: 25, rating: 3.5 },
     { id: '2', title: 'Melhores Churrascos na opinião do tio Márcio', src: CHURRASCO, category: 'Carnes', perfil: M, name: 'Tio Marcio', date: '13/08/2024 às 12:16', likes: 16, rating: 5.0 },
     { id: '3', title: 'Doce de Leite Condensado', src: CONDENSADO, category: 'Doces', perfil: F, name: 'Tia Flávia', date: '15/08/2024 às 19:25', likes: 12, rating: 2.5 },
     { id: '4', title: 'Doce de Leite Condensado', src: CONDENSADO, category: 'Doces', perfil: F, name: 'Tia Flávia', date: '15/08/2024 às 19:25', likes: 12, rating: 2.5 },
   ];
 
-  const [revenues, setRevenues] = useState<Revenue[]>(initialRevenues);
+  const [recipes, setRecipes] = useState<Recipe[]>(initialRecipes);
 
   return (
-    <RevenuesContext.Provider value={{ revenues, setRevenues }}>
+    <RecipesContext.Provider value={{ recipes, setRecipes }}>
       {children}
-    </RevenuesContext.Provider>
+    </RecipesContext.Provider>
   );
 };
 
-export const useRevenues = () => {
-  const context = useContext(RevenuesContext);
+export const useRecipes = () => {
+  const context = useContext(RecipesContext);
   if (!context) {
-    throw new Error('revenuescontext error');
+    throw new Error('recipescontext error');
   }
   return context;
 };

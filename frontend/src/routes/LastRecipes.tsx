@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-import Revenues from "../utils/Revenues";
+import Recipes from "../utils/Recipes";
 import Ads from "../components/Ads";
 
 import Seta from '../assets/seta.svg'
@@ -19,7 +19,7 @@ export default function LastRevenues(){
                 <div className="mb-8 tsm:mb-8">
                     <p className="inter text-4xl font-bold tsm:text-3xl tsm:text-center">Ultimas <span className="textorange">Receitas</span></p>
                 </div>
-                <Revenues />
+                <Recipes />
                 <div className="flex justify-center txl:pr-20 pr-20 tlg:pr-12 lg:pr-0 tsm:pr-0">
                     <button onClick={() => gotToAllRevenues()} className="bg-customOrange p-3 px-5 rounded-full">
                         <div className="flex gap-4">
