@@ -2,6 +2,7 @@ import Router from './router.js';
 import { Request, Response } from 'express';
 
 import AuthenticateToken from '../middlewares/authenticate-token.js';
+import multer from 'multer';
 
 import UserController from '../controllers/users.js';
 import UserRequest from '../types/Request.js';
@@ -45,7 +46,11 @@ class UserRouter extends Router {
     this.router.get('/:id', async (req: UserRequest, res: Response) => {
       this.controller.listUserById(req, res);
     });
-    this.router.patch('/', async (req: UserRequest, res: Response) => {
+
+    const storage = multer.memoryStorage();
+    const upload = multer({ storage });
+
+    this.router.patch('/', upload.single('image'), async (req: UserRequest, res: Response) => {
       this.controller.editUser(req, res);
     });
   }

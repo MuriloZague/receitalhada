@@ -5,7 +5,6 @@ import Cards from "./components/ListCard"
 import Revenues from "./routes/LastRevenues"
 import Footer from "./components/Footer"
 
-
 function App() {
   return (
     <div>
