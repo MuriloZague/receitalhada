@@ -28,6 +28,7 @@
     "dev": "nodemon",
     "ps": "prisma studio",
     "dev:ps": "npm-run-all --parallel ps dev",
+    "seed": "node --loader ts-node/esm prisma/seed.ts",
     "clean": "rimraf coverage dist tmp",
     "prebuild": "npm run lint",
     "build": "tsc -p tsconfig.build.json",

@@ -24,6 +24,7 @@
     "strictNullChecks": false,
   },
   "include": [
+    "prisma",
     "src",
     "__tests__"
   ]
