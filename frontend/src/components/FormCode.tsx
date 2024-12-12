@@ -44,7 +44,7 @@ export default function CodeInput() {
               inputMode="numeric" // teclado numérico em dispositivos móveis
               pattern="[0-9]*"
               maxLength={1}
-              className="w-[5rem] h-[6rem] tsm:w-[2.9rem] tsm:h-[4rem] tsm:text-2xl lg:mx-1 tsm:mx-1 mx-2 ring-2 ring-black rounded text-center text-3xl outline-none focus:ring-4 focus:ring-orange-500"              ref={(el) => (inputsRef.current[index] = el)}
+              className="w-[5rem] h-[6rem] tsm:w-[2.9rem] tsm:h-[4rem] tsm:text-2xl lg:mx-1 tsm:mx-[3px] mx-2 ring-2 ring-black rounded text-center text-3xl outline-none focus:ring-4 focus:ring-orange-500"              ref={(el) => (inputsRef.current[index] = el)}
               onChange={(e) => handleChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
               value={code[index]}
