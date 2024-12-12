@@ -11,6 +11,7 @@ import Cadastro from './routes/SignUp.tsx'
 import Erro from './routes/Error.tsx'
 import ForgotPass from './routes/ForgotPass.tsx'
 import AllRecipes from './routes/AllRecipes.tsx'
+import CodeEmail from './routes/CodeEmail.tsx'
 
 // Providers
 import { RecipesProvider } from './utils/RecipesContext.tsx';
@@ -32,6 +33,9 @@ const router = createBrowserRouter([
   },
   {
     path: '/receitas', element: <AllRecipes />
+  },
+  {
+    path: '/codeemail', element: <CodeEmail />
   }
 ])
 
