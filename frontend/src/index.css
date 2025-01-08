@@ -9,10 +9,6 @@
     user-select: none;
 }
 
-.lineorange {
-    background-color: #E96B35;
-}
-
 .textorange {
     color: #E96B35;
     font-family: "Inter", sans-serif;
@@ -24,7 +20,7 @@
 }
 
 .search {
-    background: #EAEBEA url('../src/assets/search-icon.png') no-repeat;
+    background: #EAEBEA url("../src/assets/search-icon.png") no-repeat;
     background-position: 1em;
     background-size: 1.8rem;
     padding-left: 3.8em;
@@ -35,7 +31,7 @@
     scrollbar-width: thin;
     scrollbar-color: #888 #ffffff;
     padding-right: 1px;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .searchbar {

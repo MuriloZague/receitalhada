@@ -55,7 +55,7 @@ export default function Header({account, title}: HeaderProps) {
             )}
         </div>
         }
-            <div className="lineorange h-5 tsm:h-3">
+            <div className="bg-customOrange h-5 tsm:h-3">
             </div>
         </div>
     )
