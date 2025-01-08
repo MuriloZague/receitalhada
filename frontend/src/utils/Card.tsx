@@ -5,7 +5,7 @@ export default function Card() {
   const { cards } = useCards();
 
   return (
-    <section className="scroll-container scrollbar scrollbar-thumb-blue-500 flex gap-10 tsm:gap-6 overflow-x-auto py-6 ease-out px-2">
+    <section className="scroll-container flex gap-10 tsm:gap-6 overflow-x-auto py-6 ease-out px-2">
       {cards.map((source, index) => (
         <div
           className="flex-shrink-0 w-64 tsm:w-44 h-32 tsm:h-24 rounded-2xl inline-block hover:scale-105"

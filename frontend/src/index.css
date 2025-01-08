@@ -34,12 +34,13 @@
 .scroll-container {
     scrollbar-width: thin;
     scrollbar-color: #888 #ffffff;
+    padding-right: 1px;
+    overflow: scroll;
 }
 
 .searchbar {
     display: flex;
     justify-content: flex-end;
-    
 }
 
 .line {
